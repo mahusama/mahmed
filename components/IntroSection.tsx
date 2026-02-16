@@ -1,11 +1,14 @@
 "use client";
-
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";   
+import { motion } from 'framer-motion'
+import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Mail, Linkedin, Github } from 'lucide-react'
+import icon from "./images/Hero.png";
 
 export default function Intro() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center px-4">
+    <section className="hero-banner relative w-full min-h-screen flex items-center justify-center px-4">
       
       <div className="max-w-6xl w-full py-16 md:py-32 text-center md:text-left">
         
