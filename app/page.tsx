@@ -9,20 +9,30 @@ export default function Home() {
   return (
     
     <div className="flex min-h-screen items-center justify-center font-inter ">
-      <main className="flex min-h-screen w-full flex-col">
-        <Header/>
-        <section className="">
-          <div className="relative w-[100%] bg-[#e56b6f]">
+        <main className="flex min-h-screen w-full flex-col">
+  <Header />
 
-          </div>
-            <div className="overlay"></div>
-            <Intro />
-        </section>
-          <Skills />
-          <Experience />
-          <Projects />
-          <Contact />
-      </main>
+  <section id="intro">
+    <Intro />
+  </section>
+
+  <section id="skills">
+    <Skills />
+  </section>
+
+  <section id="experience">
+    <Experience />
+  </section>
+
+  <section id="projects">
+    <Projects />
+  </section>
+
+  <section id="contact">
+    <Contact />
+  </section>
+</main>
+
     </div>
   );
 }

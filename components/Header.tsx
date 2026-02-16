@@ -10,14 +10,17 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/features" className="text-gray-600 hover:text-black">
+          <Link href="#skills" className="text-[#3c8bc0] hover:text-white">
             Skills
           </Link>
-          <Link href="/pricing" className="text-gray-600 hover:text-black">
+          <Link href="#experience" className="text-[#3c8bc0] hover:text-white">
             Experience
           </Link>
-          <Link href="/about" className="text-gray-600 hover:text-black">
+          <Link href="#projects" className="text-[#3c8bc0] hover:text-white">
             Projects
+          </Link>
+          <Link href="#contact" className="text-[#3c8bc0] hover:text-white">
+            Contact
           </Link>
         </nav>
         
