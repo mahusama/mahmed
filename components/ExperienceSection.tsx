@@ -1,9 +1,6 @@
 'use client'
 
-import { useState } from "react";
-import { useEffect } from "react";
-import { motion } from 'framer-motion'
-import { Card } from '@/components/ui/card'
+import { useState, useEffect } from "react";
 
 const experiences = [
   {
@@ -13,10 +10,12 @@ const experiences = [
     frontSummary: "C# .NET · SQL Server · Data Engineering",
     period: 'Oct 2020 – Jan 2025',
     backDetails: [
-      'Enhanced and modernized healthcare lab reporting systems using C#, .NET, and SQL Server',
-      'Reverse-engineered legacy stored procedures to extract business logic and improve scalability',
-      'Built Python-based ETL pipelines using Pandas for healthcare data processing',
+      'Collaborated with a cross-functional team and led a small group of developers to modernize healthcare lab reporting systems.',
+      'Enhanced backend procedures and optimized database queries, improving processing efficiency and scalability.',
+      'Built Python-based ETL pipelines for large-scale healthcare data processing.',
+      'Deployed production systems used by 100+ labs, streamlining workflows and reducing manual errors.'
     ],
+    badges: ['Production System', 'Team Lead', 'Backend Optimization']
   },
   {
     role: 'Lead Software Development Engineer (Volunteer)',
@@ -25,10 +24,11 @@ const experiences = [
     frontSummary: "Frontend · API Integration · User Research",
     period: 'Jan 2025 – Jun 2025',
     backDetails: [
-      'Led frontend development and coordinated API integrations with backend engineers',
-      'Gathered user requirements and documented workflows',
-      'Improved analytics-driven UI flows',
+      'Led frontend design and coordinated API integration with backend engineers.',
+      'Designed intuitive, analytics-driven UI flows to improve usability for volunteers and users.',
+      'Documented user requirements and workflows to guide future development.'
     ],
+    badges: ['Frontend Design', 'User Experience', 'Volunteer Project']
   },
   {
     role: 'Legacy Promotions Assistant',
@@ -37,10 +37,11 @@ const experiences = [
     frontSummary: "CRM Management · Event Support · Data Analysis",
     period: 'May 2025 – Dec 2025',
     backDetails: [
-      'Managed CRM data to support organisational growth',
-      'Delivered Power BI insights for events',
-      'Led event execution and team collaboration',
+      'Managed CRM communications for 3 major events, tracking invitations, responses, and attendance.',
+      'Analyzed event participation data to provide actionable insights.',
+      'Supported team collaboration and ensured smooth event execution.'
     ],
+    badges: ['CRM Management', 'Event Coordination', 'Data Analysis']
   },
   {
     role: 'Web Developer',
@@ -49,10 +50,11 @@ const experiences = [
     frontSummary: "Frontend · Analytics · Dashboards",
     period: 'Jan 2023 – Dec 2023',
     backDetails: [
-      'Built responsive financial web applications',
-      'Created interactive dashboards with real-time analytics',
-      'Translated financial metrics into actionable insights',
+      'Built client-facing financial dashboards for real-time analytics.',
+      'Translated complex financial metrics into actionable insights for customers.',
+      'Enhanced frontend performance and improved user experience across the platform.'
     ],
+    badges: ['Frontend', 'Analytics', 'Client-Facing']
   },
 ]
 
@@ -60,52 +62,58 @@ export default function ExperienceSection() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
 
-useEffect(() => {
-  const media = window.matchMedia("(pointer: fine)");
-  setIsDesktop(media.matches);
-}, []);
-  return (
-    <section className="experience-section bg-[#0f1042]">
-      <h2 className="section-title text-white">Experience</h2>
+  useEffect(() => {
+    const media = window.matchMedia("(pointer: fine)");
+    setIsDesktop(media.matches);
+  }, []);
 
-      <div className="timeline">
+  return (
+    <section id="experience" className="experience-section bg-[#0f1042] py-32 px-6 md:px-16 scroll-mt-20">
+      <h2 className="section-title text-white text-3xl md:text-4xl font-bold mb-16 text-center">
+        Experience
+      </h2>
+
+      <div className="timeline relative">
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
+            className={`timeline-item ${index % 2 === 0 ? "left" : "right"} mb-12`}
           >
             <div
               className={`flip-card ${isDesktop ? "hover-flip" : ""}`}
               onClick={() => {
-                if (!isDesktop) {
-                  setFlippedIndex(flippedIndex === index ? null : index);
-                }
+                if (!isDesktop) setFlippedIndex(flippedIndex === index ? null : index);
               }}
             >
               <div
-                className={`flip-card-inner ${
-                  !isDesktop && flippedIndex === index ? "flipped" : ""
-                }`}
+                className={`flip-card-inner ${!isDesktop && flippedIndex === index ? "flipped" : ""}`}
               >
 
                 {/* FRONT */}
-                <div className="flip-card-front">
-                  <h3>{exp.role}</h3>
-                  <span className="company">{exp.company}</span>
-                  <span className="period">{exp.period}</span>
-                  <p className="summary">{exp.frontSummary}</p>
-                  {!isDesktop && <small>Tap for details</small>}
+                <div className="flip-card-front bg-[#1a1a80] p-6 rounded-2xl shadow-lg">
+                  <h3 className="text-xl font-semibold text-white">{exp.role}</h3>
+                  <span className="company text-gray-300">{exp.company} – {exp.location}</span>
+                  <span className="period text-gray-400 block mt-1">{exp.period}</span>
+                  <p className="summary text-gray-200 mt-2">{exp.frontSummary}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {exp.badges.map((badge, i) => (
+                      <span key={i} className="text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-medium">
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                  {!isDesktop && <small className="text-gray-400 mt-2 block">Tap for details</small>}
                 </div>
 
                 {/* BACK */}
-                <div className="flip-card-back">
-                  <h4>Key Contributions</h4>
-                  <ul>
+                <div className="flip-card-back bg-[#2626a0] p-6 rounded-2xl shadow-lg text-white">
+                  <h4 className="font-semibold text-lg mb-2">Key Contributions</h4>
+                  <ul className="list-disc list-inside space-y-1">
                     {exp.backDetails.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
                   </ul>
-                  {!isDesktop && <small>Tap to go back</small>}
+                  {!isDesktop && <small className="text-gray-300 mt-2 block">Tap to go back</small>}
                 </div>
               </div>
             </div>
