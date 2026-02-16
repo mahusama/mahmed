@@ -40,7 +40,7 @@ export default function Contact() {
           />
 
           <ContactIcon
-            href="https://github.com/YOUR_GITHUB"
+            href="https://github.com/mahusama"
             icon={<Github size={22} />}
             label="GitHub"
             external
