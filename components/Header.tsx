@@ -10,7 +10,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         
         <Link href="/" className="text-lg font-semibold">
-          Hi, nice to meet you!
+          Hi, I’m Mahnoor. Let’s build impactful solutions.
         </Link>
 
         {/* Desktop Nav */}
