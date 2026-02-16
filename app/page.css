@@ -3,7 +3,7 @@
   width: 100%;
   background-image: url("hero_picture.png");
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
