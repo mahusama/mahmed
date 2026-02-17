@@ -21,7 +21,7 @@ export default function Intro() {
 </motion.h1>
 
 <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-300">
-  Full-Stack Engineer & Data Engineer
+  Full-Stack Engineer building scalable web applications & data-driven systems
 </p>
 
     <p className="mt-6 max-w-2xl mx-auto md:mx-0 text-base sm:text-lg text-gray-200 leading-relaxed">
